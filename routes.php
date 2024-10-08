@@ -9,7 +9,7 @@ require 'controllers/DashboardController.php'; // Instancia controlador de deash
 
 // Cria instância dos controladores para utilizar seus métodos
 $authController = new AuthController();
-$userController = new UserController();
+$UserController = new UserController();
 $dashboardController = new DashboardController();
 
 ?>
