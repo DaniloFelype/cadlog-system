@@ -1,18 +1,11 @@
 <?php
-    // Inclui arquivos de controlador necessários para lidar com diferentes ações
-
-require 'controllers/AuthController.php'; // Instancia controlador de autenticação
-
-require 'controllers/UserController.php'; // Instancia controlador de usuário
-
-require 'controllers/DashboardController.php'; // Instancia controlador de deashboard
-
-// Cria instância dos controladores para utilizar seus métodos
-$authController = new AuthController();
-$UserController = new UserController();
-$dashboardController = new DashboardController();
-
- // $dashboardController = new DashboardController();
+    require 'controllers/AuthController.php';
+    require 'controllers/UserController.php';
+    require 'controllers/DashboardController.php';
+ 
+    $authController = new AuthController();
+    $userController = new  UserController();
+    $dashboardController = new DashboardController();
  
     // coleta a ação da URL, se não ouver ação definida, usa 'login'como padrão
     $action = $_GET['action'] ?? 'login'; //usa operadpor de coalecencia nula (??) para definir 'login' se 'action' não estiver presente
@@ -21,10 +14,13 @@ $dashboardController = new DashboardController();
         case 'login':
             $authController->login();
             break;
+        case 'logout';
+            $dashboardController->logout();
+        break;
         case 'register':
-            $userController->register();
+            $UserController->register();
             break;
-        case 'dashboard':
+        case 'dashboard';
             $dashboardController->index();
             break;
         default:
